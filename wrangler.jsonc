@@ -1,0 +1,42 @@
+{
+	"compatibility_date": "2025-10-08",
+	"main": "src/index.ts",
+	"name": "worker-tg-bot-template",
+	"upload_source_maps": true,
+	"observability": {
+		"enabled": true
+	},
+	"triggers": {
+		"crons": ["0 0 * * *"]
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "worker-template-db",
+			"database_id": "REPLACE_ME"
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "KV",
+			"id": "REPLACE_ME"
+		}
+	],
+	"queues": {
+		"producers": [
+			{
+				"binding": "MY_QUEUE",
+				"queue": "worker-template-queue"
+			}
+		],
+		"consumers": [
+			{
+				"queue": "worker-template-queue",
+				"max_batch_size": 50,
+				"max_batch_timeout": 5,
+				"max_retries": 3,
+				"dead_letter_queue": "worker-template-queue-dlq"
+			}
+		]
+	}
+}
