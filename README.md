@@ -34,7 +34,7 @@ Create your KV, D1, and Queue resources:
 
 ```bash
 # Create KV namespace
-npx wrangler kv:namespace create BOT_KV
+npx wrangler kv namespace create BOT_KV
 
 # Create D1 database
 npx wrangler d1 create bot-db
